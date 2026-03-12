@@ -76,7 +76,7 @@ mkdir -p /home/ubuntu/logs
 # Start backend with PM2
 echo -e "${YELLOW}Starting backend with PM2...${NC}"
 pm2 delete ml-backend 2>/dev/null || true
-pm2 start deploy/pm2.config.js
+pm2 start deploy/pm2.config.cjs
 pm2 save
 sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u ubuntu --hp /home/ubuntu | tail -n 1 | sudo bash 2>/dev/null || true
 
